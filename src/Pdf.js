@@ -108,7 +108,8 @@ Pdf.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   onDocumentComplete: PropTypes.func,
-  onPageComplete: PropTypes.func
+  onPageComplete: PropTypes.func,
+  style: PropTypes.object,
 };
 Pdf.defaultProps = {page: 1, scale: 1.0};
 
