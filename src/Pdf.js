@@ -95,7 +95,7 @@ class Pdf extends Component {
   }
 
   render() {
-    const {loading,style} = this.props;
+    const {loading, style} = this.props;
     const {page} = this.state;
     return page ? <canvas style={style} ref="canvas"/> : loading || <div>Loading PDF...</div>;
   }
