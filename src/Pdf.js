@@ -95,9 +95,9 @@ class Pdf extends Component {
   }
 
   render() {
-    const {loading} = this.props;
+    const {loading, style} = this.props;
     const {page} = this.state;
-    return page ? <canvas ref="canvas"/> : loading || <div>Loading PDF...</div>;
+    return page ? <canvas style={style} ref="canvas"/> : loading || <div>Loading PDF...</div>;
   }
 }
 Pdf.displayName = 'React-PDFjs';
@@ -108,7 +108,8 @@ Pdf.propTypes = {
   page: PropTypes.number,
   scale: PropTypes.number,
   onDocumentComplete: PropTypes.func,
-  onPageComplete: PropTypes.func
+  onPageComplete: PropTypes.func,
+  style: PropTypes.object,
 };
 Pdf.defaultProps = {page: 1, scale: 1.0};
 
