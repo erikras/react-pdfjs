@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 
 if (typeof window !== 'undefined') {
   require('pdfjs-dist/build/pdf.combined');
+  require('pdfjs-dist/web/compatibility');
 }
 
 class Pdf extends Component {
