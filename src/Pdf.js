@@ -27,7 +27,8 @@ class Pdf extends Component {
     }
 
     if (pdf && ((newProps.page && newProps.page !== this.props.page) ||
-      (newProps.scale && newProps.scale !== this.props.scale))) {
+      (newProps.scale && newProps.scale !== this.props.scale)) ||
+      (newProps.rotate && newProps.rotate !== this.props.rotate)) {
       this.setState({page: null});
       pdf.getPage(newProps.page).then(this.onPageComplete);
     }
@@ -87,8 +88,8 @@ class Pdf extends Component {
         canvas = canvas.getDOMNode();
       }
       const canvasContext = canvas.getContext('2d');
-      const {scale} = this.props;
-      const viewport = page.getViewport(scale);
+      const {scale, rotate} = this.props;
+      const viewport = page.getViewport(scale, rotate);
       canvas.height = viewport.height;
       canvas.width = viewport.width;
       page.render({canvasContext, viewport});
@@ -108,6 +109,7 @@ Pdf.propTypes = {
   loading: PropTypes.any,
   page: PropTypes.number,
   scale: PropTypes.number,
+  rotate: PropTypes.number,
   onDocumentComplete: PropTypes.func,
   onPageComplete: PropTypes.func,
   style: PropTypes.object,
