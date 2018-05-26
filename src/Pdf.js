@@ -28,7 +28,7 @@ class Pdf extends Component {
 
     if (pdf && ((newProps.page && newProps.page !== this.props.page) ||
       (newProps.scale && newProps.scale !== this.props.scale)) ||
-      (newProps.rotate && newProps.rotate !== this.props.rotate)) {
+      ((newProps.rotate || newProps.rotate === 0) && newProps.rotate !== this.props.rotate)) {
       this.setState({page: null});
       pdf.getPage(newProps.page).then(this.onPageComplete);
     }
