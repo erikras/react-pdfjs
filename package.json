@@ -30,7 +30,8 @@
   },
   "homepage": "https://github.com/erikras/react-pdfjs",
   "dependencies": {
-    "pdfjs-dist": "^1.5.296"
+    "pdfjs-dist": "^1.5.296",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "babel": "^5.8.23",
